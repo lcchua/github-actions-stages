@@ -1,0 +1,62 @@
+name: Github actions manual input
+
+## If you'd like to manually trigger a CI/CD action, you can use
+## workflow_dispatch. 
+## Inputs allow users the option to get inputs before running
+## the workflow. You can use this to get certain values e.g.
+## package version, aws region name, deployment type etc.
+## You can choose between types choice (dropdown list), string (input text),
+## boolean (true or false value) and environments apart from others
+
+on:
+  workflow_dispatch:
+    inputs:
+      country:
+        type: choice
+        description: Holiday country selection
+        options: 
+        - australia
+        - brazil
+        - canada
+        - denmark
+        - england
+        - france
+        - germany
+        - hungary
+        - india
+        - japan
+        - kazakhstan
+        - lebanon
+        - malaysia
+        - norway
+        - oman
+        - peru
+
+      city:
+        type: string
+        required: true
+
+      first-time:
+        type: boolean
+        description: First time in country?
+
+      environment:
+        type: environment
+
+jobs:
+  inputs-print:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Country name
+        run: echo $country
+
+      - name: City name
+        run: echo $city
+
+      - name: Is this your first time in this country & city?
+        run: echo $first-time
+
+      - name: What environment is your code in?
+        run: echo $environment
