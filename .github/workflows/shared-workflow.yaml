@@ -12,7 +12,6 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch
 
 ## When calling a reusable workflow, make sure you follow the format:
 ## <github account name>/<github repo name>/.github/workflows/<workflow name>@<branch name>
