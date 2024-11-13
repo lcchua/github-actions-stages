@@ -1,5 +1,5 @@
 ## This workflow will trigger another workflow in another repository within your organization
-## Currently the workflow resides in https://github.com/luqmannnn/reusable-workflow/blob/main/.github/workflows/reusable-workflow.yaml
+## Currently the workflow resides in https://github.com/lcchua/github-actions-reusable-workflow/blob/main/.github/reusable-workflow.yaml
 
 name: Call a reusable workflow
 
@@ -12,13 +12,14 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch
 
 ## When calling a reusable workflow, make sure you follow the format:
 ## <github account name>/<github repo name>/.github/workflows/<workflow name>@<branch name>
 
 jobs:
   call-workflow:
-    uses: luqmannnn/reusable-workflow/.github/workflows/reusable-workflow.yaml@main
+    uses: lcchua/github-actions-reusable-workflow/.github/workflows/reusable-workflow.yaml@main
     with:
       user-name: "david"
       address: "singapore"
